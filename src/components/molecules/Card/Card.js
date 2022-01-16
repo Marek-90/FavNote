@@ -66,7 +66,12 @@ const StyledLinkButton = styled.a`
   height: 47px;
   border-radius: 50px;
   background: white url() (${LinkIcon}) no-repeat;
-  background-size: contin;
+  background-size: contain;
+  background-size: 60%;
+  background-position: 50%;
+  position: absolute;
+  right: 25px;
+  top: 25px;
 `;
 
 const Card = ({ cardType }) => (
