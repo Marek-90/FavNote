@@ -4,7 +4,7 @@ const Button = styled.button`
   padding: 0;
   width: 220px;
   height: 47px;
-  background-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.note};
   border: none;
   border-radius: 50px;
   font-family: "Montserrat";
