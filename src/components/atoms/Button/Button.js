@@ -2,9 +2,9 @@ import styled, { css } from "styled-components";
 
 const Button = styled.button`
   padding: 0;
-  width: ${({ width }) => width || "220px"};
+  width: 220px;
   height: 47px;
-  background-color: #ffd82b;
+  background-color: ${({ theme }) => theme.primary};
   border: none;
   border-radius: 50px;
   font-family: "Montserrat";
