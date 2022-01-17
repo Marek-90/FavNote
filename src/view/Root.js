@@ -6,15 +6,15 @@ import Twitters from "../view/Twitters";
 
 const Root = () => {
   return (
-    <MainTemplate>
-      <BrowserRouter>
+    <BrowserRouter>
+      <MainTemplate>
         <Routes>
           <Route exact path="/" element={<Notes />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/twitters" element={<Twitters />} />
         </Routes>
-      </BrowserRouter>
-    </MainTemplate>
+      </MainTemplate>
+    </BrowserRouter>
   );
 };
 export default Root;
