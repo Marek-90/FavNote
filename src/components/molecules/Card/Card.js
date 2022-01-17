@@ -17,7 +17,7 @@ const StyledWraper = styled.div`
 
 const InnerWrapper = styled.div`
   position: relative;
-  padding: 17px 30px 10px;
+  padding: 17px 30px;
   background-color: ${({ activeColor, theme }) =>
     activeColor ? theme[activeColor] : "white"};
 
@@ -35,7 +35,7 @@ const InnerWrapper = styled.div`
 `;
 
 const DateInfo = styled(Paragraph)`
-  margin: 0 0 10px;
+  margin: 0 0 5px;
   font-weight: ${({ theme }) => theme.bold};
   font-size: ${({ theme }) => theme.fontSize.xs};
 `;
@@ -65,26 +65,29 @@ const StyledLinkButton = styled.a`
   background-position: 50%;
   position: absolute;
   right: 25px;
-  top: 25px;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
-const Card = ({ cardType }) => (
+const Card = ({
+  cardType,
+  title,
+  created,
+  twitterName,
+  articleUrl,
+  content,
+}) => (
   <StyledWraper>
     <InnerWrapper activeColor={cardType}>
-      <StyleHeading>Hellow</StyleHeading>
-      <DateInfo>3 days</DateInfo>
+      <StyleHeading>{title}</StyleHeading>
+      <DateInfo>{created}</DateInfo>
       {cardType === "twitter" && (
-        <StyledAvatar src="https://unavatar.io/twitter/offroad4x4s" />
+        <StyledAvatar src={`https://unavatar.io/twitter/${twitterName}`} />
       )}
-      {cardType === "article" && (
-        <StyledLinkButton href="https://www.google.pl/" />
-      )}
+      {cardType === "article" && <StyledLinkButton href={articleUrl} />}
     </InnerWrapper>
     <InnerWrapper flex>
-      <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit nemo
-        ducimus fuga repellendus illum
-      </Paragraph>
+      <Paragraph>{content}</Paragraph>
     </InnerWrapper>
     <Button secondary>REMOVE</Button>
   </StyledWraper>
@@ -92,10 +95,17 @@ const Card = ({ cardType }) => (
 
 Card.propTypes = {
   cardType: PropTypes.oneOf(["note", "twitter", "article"]),
+  title: PropTypes.string.isRequired,
+  created: PropTypes.string.isRequired,
+  twitterName: PropTypes.string,
+  articleUrl: PropTypes.string,
+  content: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
   cardType: "note",
+  twitterName: null,
+  articleUrl: null,
 };
 
 export default Card;
