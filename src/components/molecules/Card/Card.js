@@ -1,15 +1,9 @@
-import PropType from "prop-types";
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import Paragraph from "../../atoms/Paragraph/Paragraph";
 import Heading from "../../atoms/Paragraph/Paragraph";
 import Button from "../../atoms/Button/Button";
 import LinkIcon from "../../../assets/icon/link.svg";
-
-const CARD_TYPE = {
-  note: "NOTE",
-  twitter: "TWITTER",
-  article: "ARTICLE",
-};
 
 const StyledWraper = styled.div`
   min-height: 380px;
@@ -24,8 +18,8 @@ const StyledWraper = styled.div`
 const InnerWrapper = styled.div`
   position: relative;
   padding: 17px 30px 10px;
-  background-color: ${({ activeColour, theme }) =>
-    activeColour ? theme[activeColour] : "white"};
+  background-color: ${({ activeColor, theme }) =>
+    activeColor ? theme[activeColor] : "white"};
 
   :first-of-type {
     z-index: 9999;
@@ -65,7 +59,7 @@ const StyledLinkButton = styled.a`
   width: 47px;
   height: 47px;
   border-radius: 50px;
-  background: white url() (${LinkIcon}) no-repeat;
+  background: white url(${LinkIcon}) no-repeat;
   background-size: contain;
   background-size: 60%;
   background-position: 50%;
@@ -97,11 +91,11 @@ const Card = ({ cardType }) => (
 );
 
 Card.propTypes = {
-  cardType: PropType.oneOf(["note", "twitter", "article"]),
+  cardType: PropTypes.oneOf(["note", "twitter", "article"]),
 };
 
 Card.defaultProps = {
-  cardType: CARD_TYPE.note,
+  cardType: "note",
 };
 
 export default Card;
