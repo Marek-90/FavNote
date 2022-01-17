@@ -2,7 +2,7 @@ import UserPageTemplate from "../templates/UserPageTemplate";
 
 const Articles = () => {
   return (
-    <UserPageTemplate>
+    <UserPageTemplate pageType="article">
       <h1>Articles view</h1>
     </UserPageTemplate>
   );

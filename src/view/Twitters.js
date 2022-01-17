@@ -2,7 +2,7 @@ import UserPageTemplate from "../templates/UserPageTemplate";
 
 const Twitters = () => {
   return (
-    <UserPageTemplate>
+    <UserPageTemplate pageType="twitter">
       <h1>Twitters view</h1>
     </UserPageTemplate>
   );

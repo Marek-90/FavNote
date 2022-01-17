@@ -14,7 +14,8 @@ const StyledWraper = styled.nav`
   padding: 25px 0;
   width: 150px;
   height: 100vh;
-  background-color: ${({ theme }) => theme.note};
+  background-color: ${({ activeColor, theme }) =>
+    activeColor ? theme[activeColor] : theme.note};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -43,9 +44,9 @@ const StyledLinksList = styled.ul`
   list-style: none;
 `;
 
-const Sidebar = () => {
+const Sidebar = ({ pageType }) => {
   return (
-    <StyledWraper>
+    <StyledWraper activeColor={pageType}>
       <StyledLogoLink to="/" />
       <StyledLinksList>
         <li>
@@ -58,7 +59,7 @@ const Sidebar = () => {
           <ButtonIcon as={NavLink} to="/articles" icon={bulbIcon} />
         </li>
       </StyledLinksList>
-      <StyledLogoutButton as={NavLink} to="/" icon={logoutIcon} />
+      <StyledLogoutButton as={NavLink} to="/login" icon={logoutIcon} />
     </StyledWraper>
   );
 };
